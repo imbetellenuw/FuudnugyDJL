@@ -41,7 +41,6 @@ jobs:
   analyze:
     needs: check_changes
     if: ${{ needs.check_changes.outputs.go-changes == 'true' || github.event_name != 'pull_request' }}
-    runs-on: ubuntu-18.04
     permissions:
       security-events: write
     steps:
@@ -55,4 +54,3 @@ jobs:
       with:
         languages: go
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@7502d6e991ca767d2db617bfd823a1ed925a0d59
